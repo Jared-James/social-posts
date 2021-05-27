@@ -4,7 +4,7 @@ import useStyles from "./styles";
 import memories from "../../images/memories.png";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import decode from "jwt-decode";
+// import decode from "jwt-decode";
 
 const NavBar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
