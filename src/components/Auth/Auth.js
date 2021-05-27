@@ -8,7 +8,8 @@ import {
   Paper,
 } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+import { signin, signup } from "../../actions/auth";
 
 import { GoogleLogin } from "react-google-login";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -17,24 +18,45 @@ import Input from "./Input";
 import useStyles from "./styles";
 import Icon from "./icon";
 
+const initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
 const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setSignUp] = useState(false);
-  const dispatch = useDispatch()
-  const history = useHistory()
+  const [formData, setFormData] = useState(initialState);
+
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const classes = useStyles();
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isSignup) {
+      dispatch(signup(formData, history));
+      console.log('signup', formData)
+    } else {
+      dispatch(signin(formData, history));
+      console.log('signin', history)
+    }
+  };
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
 
   const switchMode = (e) => {
     setSignUp((prevSignUp) => !prevSignUp);
-    handleShowPassword(false);
+    setShowPassword(false);
   };
 
   const googleSuccess = async (res) => {
@@ -42,10 +64,10 @@ const Auth = () => {
     const token = res?.tokenId;
 
     try {
-        dispatch({type: 'AUTH', data: {result, token}})
-        history.push('/')
+      dispatch({ type: "AUTH", data: { result, token } });
+      history.push("/");
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   };
 

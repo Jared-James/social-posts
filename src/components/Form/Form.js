@@ -8,12 +8,12 @@ import { useSelector } from "react-redux";
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
-    creator: "",
     message: "",
     title: "",
     tags: "",
     selectedFile: "",
   });
+  const user = JSON.parse(localStorage.getItem('profile'))
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
@@ -27,23 +27,31 @@ const Form = ({ currentId, setCurrentId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (currentId) {
-      dispatch(updatePost(currentId, postData));
+    if (currentId === 0) {
+      dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
     } else {
-      dispatch(createPost(postData));
+      dispatch(createPost({...postData, name: user?.result?.name}));
     }
     clear()
   };
   const clear = () => {
     setCurrentId(null);
     setPostData({
-      creator: "",
       message: "",
       title: "",
       tags: "",
       selectedFile: "",
     });
   };
+
+  if (!user?.result?.name) {
+    return (
+      <Paper className={classes.paper}>
+      <Typography variant="h6" align="center">Please sign in to create memories</Typography>
+
+      </Paper>
+    )
+  }
 
   return (
     <Paper className={classes.paper}>
@@ -56,16 +64,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <Typography variant="h6">
           {currentId ? "Editting" : "Creating"}
         </Typography>
-        <TextField
-          name="creator"
-          variant="outlined"
-          label="Creator"
-          fullWidth
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
+ 
         <TextField
           name="title"
           variant="outlined"
