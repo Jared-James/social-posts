@@ -3,40 +3,39 @@ import { AppBar, Typography, Toolbar, Button, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
 import memories from "../../images/memories.png";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { useDispatch} from "react-redux";
-import decode from 'jwt-decode'
+import { useDispatch } from "react-redux";
+import decode from "jwt-decode";
 
 const NavBar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const classes = useStyles();
-  const history = useHistory()
-  const location = useLocation()
+  const history = useHistory();
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const logout = () => {
-    dispatch({type: 'LOGOUT'})
+    dispatch({ type: "LOGOUT" });
 
-    history.push('/')
+    history.push("/");
 
-    setUser(null)
+    setUser(null);
   };
 
 
+
   useEffect(() => {
-    const token = user?.token;
+    // let token = user?.token;
+    // if (token) {
+    //   const decodedToken = decode(token);
 
-    if(token) {
-      const decodedToken = decode(token)
-
-      if (decodedToken.exp * 1000 < new Date().getTime()) logout()
-    }
-
-
+    //   if (decodedToken.exp * 1000 < new Date().getTime()) {
+    //     return logout();
+    //   }
+    // }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]);
-
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[location]);
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
