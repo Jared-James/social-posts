@@ -16,13 +16,14 @@ const Form = ({ currentId, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
   const history = useHistory();
 
+
   const clear = () => {
     setCurrentId(0);
     setPostData({ title: '', message: '', tags: [], selectedFile: '' });
   };
 
   useEffect(() => {
-    if (!post?.title) clear();
+    if (!post?.title) ;
     if (post) setPostData(post);
   }, [post]);
 

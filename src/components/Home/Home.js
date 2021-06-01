@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import {
   Container,
   Grow,
@@ -15,7 +15,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import useStyles from "./styles";
 import Pagination from "../Pagination";
 
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import { getPostsBySearch } from "../../actions/posts";
 import Form from "../Form/Form";
 import Posts from "../Posts/Posts";
 
