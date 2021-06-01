@@ -16,13 +16,13 @@ const Post = () => {
 
   useEffect(() => {
     dispatch(getPost(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     if (post) {
       dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
     }
-  }, [post]);
+  }, [post, dispatch]);
 
   if (!post) return null;
 
@@ -65,7 +65,7 @@ const Post = () => {
                 <Typography gutterBottom variant="subtitle2">{name}</Typography>
                 <Typography gutterBottom variant="subtitle2">{message}</Typography>
                 <Typography gutterBottom variant="subtitle1">Likes: {likes.length}</Typography>
-                <img src={selectedFile} width="200px" />
+                <img src={selectedFile} alt="selected file" width="200px" />
               </div>
             ))}
           </div>
