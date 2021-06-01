@@ -12,7 +12,7 @@ export default makeStyles((theme) => ({
     padding: '10px 50px',
   },
   heading: {
-    color: 'rgba(0,183,255, 1)',
+    color: '#000',
     textDecoration: 'none',
   },
   image: {
@@ -35,6 +35,11 @@ export default makeStyles((theme) => ({
   brandContainer: {
     display: 'flex',
     alignItems: 'center',
+
+  },
+  icon: {
+    marginTop: '.5rem',
+    marginRight: '1rem'
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),

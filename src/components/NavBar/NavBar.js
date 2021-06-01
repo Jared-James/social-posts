@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AppBar, Typography, Toolbar, Button, Avatar } from "@material-ui/core";
 import useStyles from "./styles";
 // import memories from "../../images/memories.png";
+import viewers from '../../images/viewers.png';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 // import decode from "jwt-decode";
@@ -44,10 +45,11 @@ const NavBar = () => {
           component={Link}
           to="/"
           className={classes.heading}
-          variant="h2"
+          variant="h3"
           align="center"
         >
-          @(0.0)@
+          <img  src={viewers} alt="icon" height="40px" className={classes.icon} />
+          Social Posts
         </Typography>
     
       </div>
