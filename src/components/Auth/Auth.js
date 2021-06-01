@@ -40,10 +40,8 @@ const Auth = () => {
     e.preventDefault();
     if (isSignup) {
       dispatch(signup(formData, history));
-      console.log('signup', formData)
     } else {
       dispatch(signin(formData, history));
-      console.log('signin', history)
     }
   };
 
