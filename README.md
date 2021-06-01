@@ -1,6 +1,6 @@
 # Social Posts
 
-https://jared-mernstack.netlify.app/posts
+https://jared-mernstack.netlify.app
 
 Server code is hosted on heroku & Frontend code is hosted on netlify
 
