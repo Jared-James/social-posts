@@ -4,6 +4,7 @@ import {
   UPDATE,
   DELETE,
   LIKE,
+  FETCH_BY_SEARCH,
 } from "../constants/actionTypes";
 
 const reducers = (posts = [], action) => {
@@ -11,6 +12,9 @@ const reducers = (posts = [], action) => {
     case DELETE:
       return posts.filter((post) => post._id !== action.payload);
     case FETCH_ALL:
+      return action.payload;
+    case FETCH_BY_SEARCH:
+      console.log("reducer", action.payload);
       return action.payload;
     case CREATE:
       return [...posts, action.payload];
@@ -25,4 +29,4 @@ const reducers = (posts = [], action) => {
   }
 };
 
-export default reducers
+export default reducers;

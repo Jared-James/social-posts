@@ -36,24 +36,21 @@ const Home = () => {
   const page = query.get("page") || 1;
   const searchQuery = query.get("searchQuery");
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
-
   const searchPost = () => {
-    if (search.trim()) {
+    if (search.trim() || tags) {
       dispatch(getPostsBySearch({ search, tags: tags.join(',')}));
+      history.push(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
     } else {
       history.push("/");
     }
   };
 
-  const handleKeyPress = (e) => {
-    if (e.KeyCode === 13) {
-      searchPost();
-      /// search post
-    }
-  };
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [currentId, dispatch]);
+
+  
+  
 
   const handleAdd = (tag) => setTags([...tags, tag]);
   const handleDelete = (tagToDelete) =>
@@ -86,7 +83,7 @@ const Home = () => {
                 fullWidth
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                onKeyPress={handleKeyPress}
+            
               />
               <ChipInput
                 style={{ margin: "10px 0" }}
