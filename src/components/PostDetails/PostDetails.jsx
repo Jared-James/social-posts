@@ -55,12 +55,12 @@ const Post = () => {
         </div>
       </div>
       {!!recommendedPosts.length && (
-        <div className={classes.section}>
+        <div  className={classes.section}>
           <Typography gutterBottom variant="h5">You might also like:</Typography>
           <Divider />
-          <div className={classes.recommendedPosts}>
-            {recommendedPosts.slice(2).map(({ title, name, message, likes, selectedFile, _id }) => (
-              <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
+          <div  className={classes.recommendedPosts}>
+            {recommendedPosts.slice(4).map(({ title, name, message, likes, selectedFile, _id }) => (
+              <div   style={{ margin: '15px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
                 <Typography gutterBottom variant="h6">{title}</Typography>
                 <Typography gutterBottom variant="subtitle2">{name}</Typography>
                 <Typography gutterBottom variant="subtitle2">{message}</Typography>
