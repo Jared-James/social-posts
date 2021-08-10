@@ -1,6 +1,7 @@
 ## Social Posts
 
-https://jared-mernstack.netlify.app
+https://jared-mernstack.netlify.app - currently not working, need to change settings in google auth login 
+#### Will update soon and remove this. 11/08/2021 10:47am
 
 Built to demonstrate authentication and a full stack application with server side functionality
 
