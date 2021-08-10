@@ -1,14 +1,20 @@
-# Social Posts
+## Social Posts
 
 https://jared-mernstack.netlify.app
 
-Server code is hosted on heroku & Frontend code is hosted on netlify
+Built to demonstrate authentication and a full stack application with server side functionality
 
-- Due to free hosting the application is not the fastest rabit in the race.
+Server code is hosted on Heroku & Frontend code is hosted on Netlify
+- Due to free hosting the application is not the fastest rabbit in the race.
 - Once you open the site, please wait for posts to be pulled from the MongoDB 
 - Feel free to add a post!
 
-*A full stack MERN application*
+Version 1.0.0
+ - Be able to CRUD in the context of the application.
+ - Create an account.
+
+Version 1.0.1 (NOT RELEASED)
+- Increase the websites speed! make database calls faster and reduce the time it takes for the first paint.
 
 ### *Technologies used*
 
@@ -18,11 +24,3 @@ Server code is hosted on heroku & Frontend code is hosted on netlify
 - Node / Express
 - JWT
 - MongoDB
-
-## Installation 
-Use the package manager NPM to install
-```bash
-npm install
-
-Npm start
-```
