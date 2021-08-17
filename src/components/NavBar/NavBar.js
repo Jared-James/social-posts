@@ -40,7 +40,7 @@ const NavBar = () => {
           component={Link}
           to="/"
           className={classes.heading}
-          variant="h3"
+          variant="h4"
           align="center"
         >
           <img
@@ -81,7 +81,7 @@ const NavBar = () => {
             variant="contained"
             color="primary"
           >
-            Signin
+            Sign In
           </Button>
         )}
       </Toolbar>

@@ -10,6 +10,10 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px 50px',
+    maxWidth: '100%',
+    [theme.breakpoints.down("xs")]: {
+      padding: '0px'
+    }
   },
   heading: {
     color: '#000',
