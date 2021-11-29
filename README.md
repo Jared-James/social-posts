@@ -1,7 +1,6 @@
 ## Social Posts
 
-#### Will update soon - Currently broken! (YAY). 11/08/2021 10:47am
-https://jared-mernstack.netlify.app - currently not working, need to change settings in google auth login 
+https://socialposts.netlify.app/posts
 
 
 Built to demonstrate authentication and a full stack application with server side functionality
